@@ -1,5 +1,5 @@
 import pandas as pd
-import os
+import os 
 
 def combine_csv_files(input_directory, output_file):
     all_files = [os.path.join(input_directory, f) for f in os.listdir(input_directory) if f.endswith('.csv')]
