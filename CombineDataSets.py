@@ -14,11 +14,8 @@ def combine_csv_files(input_directory, output_file):
     combined_df.to_csv(output_file, index=False)
     print(f"Combined CSV saved to {output_file}")
 
-# Directory containing the CSV files
 input_directory = '/Users/seggewa/Desktop/Inputfiles'
 
-# Output file
 output_file = '/Users/seggewa/Desktop/Inputfiles/combined_data.csv'
 
-# Combine the CSV files
 combine_csv_files(input_directory, output_file)
