@@ -5,7 +5,7 @@ from scipy.spatial.distance import cdist
 import networkx as nx
 
 # Load your DataFrame
-original_csv_path = '/Users/seggewa/Desktop/2024-01-01_02-22-09_SV15.tracks.csv'
+original_csv_path = '/Users/seggewa/Desktop/2024-02-04_16-04-36_SV5.tracks.csv'
 df = pd.read_csv(original_csv_path)
 
 # Prepare a DataFrame to hold all cluster information across frames
