@@ -1,7 +1,9 @@
 import pandas as pd
 import os 
+import pyarrow.feather
 
-def combine_csv_files(input_directory, output_file):
+
+def combine_feather_files(input_directory, output_file):
     all_files = [os.path.join(input_directory, f) for f in os.listdir(input_directory) if f.endswith('.csv')]
     
     combined_df = pd.DataFrame()
@@ -14,8 +16,8 @@ def combine_csv_files(input_directory, output_file):
     combined_df.to_csv(output_file, index=False)
     print(f"Combined CSV saved to {output_file}")
 
-input_directory = '/Users/seggewa/Desktop/Inputfiles'
+input_directory = '/Users/seggewa/Desktop/Inputfiles0.7mm'
 
-output_file = '/Users/seggewa/Desktop/Inputfiles/combined_data.csv'
+output_file = '/Users/seggewa/Desktop/Output/combined_data.csv'
 
 combine_csv_files(input_directory, output_file)

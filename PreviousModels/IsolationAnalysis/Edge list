@@ -1,0 +1,27 @@
+import pandas as pd
+from scipy.spatial.distance import pdist, squareform
+
+
+df = pd.read_csv('/Users/seggewa/Desktop/DataAnalysis/RelevantColumns.csv')
+distances = pdist(df[['body.x', 'body.y']])
+dist_matrix = squareform(distances)
+
+EdgeList = []
+for track1 in df['track'].unique():
+    for track2 in df['track'].unique():
+        if track1 != track2:
+            distance = dist_matrix[df['track'] == track1, df['track'] == track2].mean()
+
+            EdgeList.append({'TrackSource': track1,
+                             'TrackTarget': track2,
+                             'Distance': distance,
+                             'source_x': df[df['track'] == track1]['body.x'].iloc[0],
+                             'source_y': df[df['track'] == track1]['body.y'].iloc[0],
+                             'target_x': df[df['track'] == track2]['body.x'].iloc[0],
+                             'target_y': df[df['track'] == track2]['body.y'].iloc[0]})
+
+EdgeList_df = pd.DataFrame(EdgeList)
+
+EdgeList_df.to_csv('/Users/seggewa/Desktop/DataAnalysis/EdgeList.csv', index=False)
+
+print("Edge list saved to 'EdgeList.csv'")
